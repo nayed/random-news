@@ -17,11 +17,12 @@ config = {
             test: /\.js$/,
             loader: 'babel'
         }, {
-            test: /\.css$/, // Only .css files
-            loader: 'style!css' // Run both loaders
-        }, {
             test: /\.html$/,
             loader: 'raw'
+        }, {
+            test: /\.css$/,
+            loaders: ['style', 'css'],
+            include: path.join(__dirname, 'app')
         }]
     },
     plugins: [
