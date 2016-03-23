@@ -9,7 +9,9 @@ export class HomeController {
     }
 
     randomName() {
-        this.name = this.random.getName()
+        console.log(this.name)
+        this.name = Promise.resolve(this.random.getName().$$state)
+        console.log(this.name)
     }
 }
 

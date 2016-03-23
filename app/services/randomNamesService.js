@@ -19,7 +19,7 @@ class RandomNames {
                 //console.log(this.posts)
                 const totalPosts = this.posts.length
                 const rand = Math.floor(Math.random() * totalPosts)
-                console.log(this.posts[rand])
+                //console.log(this.posts[rand])
                 return this.posts[rand]
             })
     }
