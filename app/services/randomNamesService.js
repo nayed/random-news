@@ -1,14 +1,27 @@
 import angular from 'angular'
 
+const HTTP = new WeakMap()
+
 class RandomNames {
-    constructor() {
-        this.names = ['John', 'Elisa', 'Mark', 'Annie'] // I'm just testing
+    constructor($http) {
+        HTTP.set(this, $http)
+        this.names = ['John', 'Elisa', 'Mark', 'Annie']
+        this.posts = []
     }
 
     getName() {
-        const totalNames = this.names.length
-        const rand = Math.floor(Math.random() * totalNames)
-        return this.names[rand]
+        // return this.names[rand]
+        //console.log(this.$http.get('http://hn.algolia.com/api/v1/search?tags=front_page'))
+        
+        return HTTP.get(this).get('http://hn.algolia.com/api/v1/search?tags=front_page')
+            .then(res => {
+                let datas = res.data.hits.map(post => this.posts.push(post))
+                //console.log(this.posts)
+                const totalPosts = this.posts.length
+                const rand = Math.floor(Math.random() * totalPosts)
+                console.log(this.posts[rand])
+                return this.posts[rand]
+            })
     }
 }
 
