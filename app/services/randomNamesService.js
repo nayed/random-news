@@ -12,8 +12,7 @@ class RandomNames {
     getName() {
         // return this.names[rand]
         //console.log(this.$http.get('http://hn.algolia.com/api/v1/search?tags=front_page'))
-        
-        return HTTP.get(this).get('http://hn.algolia.com/api/v1/search?tags=front_page')
+        let post = HTTP.get(this).get('http://hn.algolia.com/api/v1/search?tags=front_page')
             .then(res => {
                 let datas = res.data.hits.map(post => this.posts.push(post))
                 //console.log(this.posts)
@@ -22,6 +21,8 @@ class RandomNames {
                 //console.log(this.posts[rand])
                 return this.posts[rand]
             })
+        //console.log(post)
+        return post
     }
 }
 
