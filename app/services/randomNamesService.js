@@ -5,7 +5,6 @@ const HTTP = new WeakMap()
 class RandomNames {
     constructor($http) {
         HTTP.set(this, $http)
-        this.names = ['John', 'Elisa', 'Mark', 'Annie']
         this.posts = []
     }
 
