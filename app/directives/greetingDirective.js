@@ -4,9 +4,9 @@ function greeting() {
     return {
         restrict: 'E',
         scope: {
-            name: '='
+            post: '='
         },
-        template: '<h5>{{name}}</h1>'
+        template: '<h5>{{post}}</h1>'
     }
 }
 

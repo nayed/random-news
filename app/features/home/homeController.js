@@ -1,20 +1,16 @@
 export class HomeController {
-    constructor(randomNames) {
-        this.name = 'World'
-        this.random = randomNames
+    constructor(randomPosts) {
+        this.post = 'World'
+        this.random = randomPosts
     }
 
-    changeName() {
-        this.name = 'Nayed'
-    }
-
-    randomName() {
-        return this.random.getName().then(res => {
+    randomPost() {
+        return this.random.getPost().then(res => {
             //console.log(res)
-            this.name = res
+            this.post = res
             return res
         })
     }
 }
 
-HomeController.$inject = ['randomNames']
+HomeController.$inject = ['randomPosts']

@@ -2,13 +2,13 @@ import angular from 'angular'
 
 const HTTP = new WeakMap()
 
-class RandomNames {
+class RandomPosts {
     constructor($http) {
         HTTP.set(this, $http)
         this.posts = []
     }
 
-    getName() {
+    getPost() {
         // return this.names[rand]
         //console.log(this.$http.get('http://hn.algolia.com/api/v1/search?tags=front_page'))
         let post = HTTP.get(this).get('http://hn.algolia.com/api/v1/search?tags=front_page')
@@ -25,6 +25,6 @@ class RandomNames {
     }
 }
 
-export default angular.module('services.random-names', [])
-    .service('randomNames', RandomNames)
+export default angular.module('services.random-posts', [])
+    .service('randomPosts', RandomPosts)
     .name
